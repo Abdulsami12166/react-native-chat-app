@@ -1,10 +1,10 @@
-Here’s a complete step-by-step PowerShell-friendly setup guide for your React Native / Expo chat app, including dependency cleanup, Metro fix, and Git handling.
-________________________________________
-1️⃣ Move Project (Optional)
+
+
+1️.Move Project (Optional)
 Move your project out of OneDrive to avoid path issues:
 C:\Projects\React-chat-app
-________________________________________
-2️⃣ Remove Old Dependencies & Caches
+
+2️ Remove Old Dependencies & Caches
 cd "C:\Projects\React-chat-app"
 
 # Remove node_modules and lock files
@@ -14,20 +14,20 @@ del yarn.lock
 
 # Clear npm cache
 npm cache clean --force
-________________________________________
-3️⃣ Install Dependencies Fresh
+
+3️ Install Dependencies Fresh
 npm install
 Or if using Yarn:
 yarn install
-________________________________________
-4️⃣ Force Correct Metro Version
+
+4️ Force Correct Metro Version
 For Expo SDK 49+, install Metro >=0.76.18:
 npm install metro@^0.76.18 --save-dev
-________________________________________
-5️⃣ Clear Cache and Start Expo
+
+5️ Clear Cache and Start Expo
 npx expo start -c
-________________________________________
-6️⃣ Remove Tracked node_modules from Git
+
+6️ Remove Tracked node_modules from Git
 Check which node_modules folders are tracked:
 git ls-files | Select-String "node_modules"
 Remove them:
@@ -36,15 +36,15 @@ Commit the change:
 git commit -m "Remove node_modules from Git tracking"
 Make sure .gitignore contains:
 node_modules/
-________________________________________
-7️⃣ Merge Branches Properly
+
+7️ Merge Branches Properly
 Merge without opening Vim:
 git merge main -m "Merge main into my-branch"
-________________________________________
-8️⃣ Start Expo App on Device or Emulator
+
+8️ Start Expo App on Device or Emulator
 npx expo start
 Scan the QR with Expo Go or run on an emulator.
-________________________________________
+
 Notes & Tips
 •	Avoid OneDrive folders for projects.
 •	Never install Metro globally.
